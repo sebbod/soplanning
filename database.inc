@@ -2,9 +2,9 @@
 
 // Database Parameters
 $cfgHostname = 'localhost';
-$cfgDatabase = 'soplanning';
-$cfgUsername = 'root';
-$cfgPassword = 'root';
+$cfgDatabase = 'prepacars';
+$cfgUsername = 'bod';
+$cfgPassword = 'PrepaCar2021*';
 $cfgSqlType = 'mysql';
-$cfgPrefix = 'planning_';
+$cfgPrefix = 'sp_';
 ?>

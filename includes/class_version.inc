@@ -46,26 +46,29 @@ class Version
 	}
 
 	// check de la version en ligne
-	public function checkAvailableVersion() {
-		global $lang;
-		$infos = array();
-		$context = @stream_context_create(array('http' => array('header'=>'Connection: close', 'timeout' => 3, 'user_agent' => 'Mozilla/5.0')));
-		$url = 'https://www.soplanning.org/ws/version.php?version_install=' . $this->getVersion() . '&type=' . substr($_SERVER['DOCUMENT_ROOT'], 0, 1) . '&lang=' . $lang;
-		$data = @file_get_contents($url, false, $context);
-		if(strlen($data) == 0) {
-			return false;
-		}
-		$infos = array(
-			'titre' => '',
-			'version_install' => $this->getVersion()
-		);
-		$data = @unserialize(base64_decode($data));
-		if(!$data) {
-			return false;
-		}
-		$infos = array_merge($infos, $data);
-		return $infos;
+        public function checkAvailableVersion() {
+            return false; // Stop version process
 	}
+//	public function checkAvailableVersion() {
+//		global $lang;
+//		$infos = array();
+//		$context = @stream_context_create(array('http' => array('header'=>'Connection: close', 'timeout' => 3, 'user_agent' => 'Mozilla/5.0')));
+//		$url = 'https://www.soplanning.org/ws/version.php?version_install=' . $this->getVersion() . '&type=' . substr($_SERVER['DOCUMENT_ROOT'], 0, 1) . '&lang=' . $lang;
+//		$data = @file_get_contents($url, false, $context);
+//		if(strlen($data) == 0) {
+//			return false;
+//		}
+//		$infos = array(
+//			'titre' => '',
+//			'version_install' => $this->getVersion()
+//		);
+//		$data = @unserialize(base64_decode($data));
+//		if(!$data) {
+//			return false;
+//		}
+//		$infos = array_merge($infos, $data);
+//		return $infos;
+//	}
 
 
 	// creation et import initial de la base
